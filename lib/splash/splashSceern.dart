@@ -43,44 +43,94 @@
 //   }
 // }
 
-import 'package:easy_splash_screen/easy_splash_screen.dart';
-import 'package:easy_whats/generated/assets.dart';
+// import 'package:easy_splash_screen/easy_splash_screen.dart';
+// import 'package:easy_whats/generated/assets.dart';
+//
+// import 'package:flutter/material.dart';
+// import 'package:google_fonts/google_fonts.dart';
+// import 'package:provider/provider.dart';
+//
+// import '../layout/home_layout/home_layout.dart';
+// import '../provider/provider_setting.dart';
+//
+// class SplashPage extends StatefulWidget {
+//   SplashPage({Key? key}) : super(key: key);
+//   static const String routeName = 'splash';
+//
+//   @override
+//   _SplashPageState createState() => _SplashPageState();
+// }
+//
+// class _SplashPageState extends State<SplashPage> {
+//   @override
+//   Widget build(BuildContext context) {
+//     var setting = Provider.of<SettingProvider>(context);
+//     return EasySplashScreen(
+//       logo: Image.asset(setting.splashScreen[setting.colorNumber]),
+//       title: Text(
+//         "easy message pro",
+//         style: TextStyle(
+//           fontSize: 30,
+//
+//
+//         ),
+//       ),
+//       backgroundColor: setting.cardColor[setting.colorNumber],
+//       showLoader: true,
+//       loadingText: Text("Loading..."),
+//       navigator: HomeLayout(),
+//       durationInSeconds: 5,
+//       logoWidth: 50,
+//     );
+//   }
+// }
+import 'dart:async';
 
+import 'package:easy_whats/layout/home_layout/home_layout.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-import '../layout/home_layout/home_layout.dart';
 import '../provider/provider_setting.dart';
 
 class SplashPage extends StatefulWidget {
-  SplashPage({Key? key}) : super(key: key);
+  const SplashPage({Key? key}) : super(key: key);
   static const String routeName = 'splash';
 
   @override
-  _SplashPageState createState() => _SplashPageState();
+  State<SplashPage> createState() => _SplashPageState();
 }
 
 class _SplashPageState extends State<SplashPage> {
   @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    Timer(Duration(seconds: 3), () {
+      Navigator.pushReplacementNamed(context, HomeLayout.routeName);
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
     var setting = Provider.of<SettingProvider>(context);
-    return EasySplashScreen(
-      logo: Image.asset(setting.splashScreen[setting.colorNumber]),
-      title: Text(
-        "easy message pro",
-        style: TextStyle(
-          fontSize: 30,
+    return Scaffold(
+      backgroundColor: setting.colorSystem[setting.colorNumber],
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
 
-
-        ),
+        children: [
+          // Image.asset(setting.splashScreen[setting.colorNumber]),
+          Text('easy message',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                  fontSize: 45, color: Colors.white, fontFamily: 'Monoton')),
+          Text('محمد زوين',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                  fontSize: 45, color: Colors.white,)),
+        ],
       ),
-      backgroundColor: setting.cardColor[setting.colorNumber],
-      showLoader: true,
-      loadingText: Text("Loading..."),
-      navigator: HomeLayout(),
-      durationInSeconds: 5,
-      logoWidth: 50,
     );
   }
 }
+

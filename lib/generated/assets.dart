@@ -3,7 +3,9 @@ class Assets {
   Assets._();
 
   static const String fontsAlMohanad = 'assets/fonts/al-mohanad.ttf';
+  static const String fontsAlkalamiRegular = 'assets/fonts/Alkalami-Regular.ttf';
   static const String fontsAmiriRegular = 'assets/fonts/Amiri-Regular.ttf';
+  static const String fontsMonotonRegular = 'assets/fonts/Monoton-Regular.ttf';
   static const String fontsRighteousRegular = 'assets/fonts/Righteous-Regular.ttf';
   static const String imageBack = 'assets/image/back.png';
   static const String imageBack1 = 'assets/image/back1.png';
