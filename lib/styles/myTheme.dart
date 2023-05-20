@@ -48,9 +48,11 @@ class MyThemeData {
       ),
       bottomNavigationBarTheme: const BottomNavigationBarThemeData(
 
-          type:BottomNavigationBarType.fixed ,
-          selectedItemColor: MASTERNAV,
-          unselectedItemColor: Colors.white));
+          // type:BottomNavigationBarType.fixed ,
+          // selectedItemColor: MASTERNAV,
+          // unselectedItemColor: Colors.white
+      )
+  );
 
   static ThemeData darkTheme = ThemeData();
 }

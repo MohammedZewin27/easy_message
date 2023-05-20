@@ -115,20 +115,28 @@ class _SplashPageState extends State<SplashPage> {
     var setting = Provider.of<SettingProvider>(context);
     return Scaffold(
       backgroundColor: setting.colorSystem[setting.colorNumber],
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
 
-        children: [
-          // Image.asset(setting.splashScreen[setting.colorNumber]),
-          Text('easy message',
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                  fontSize: 45, color: Colors.white, fontFamily: 'Monoton')),
-          Text('محمد زوين',
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                  fontSize: 45, color: Colors.white,)),
-        ],
+          children: [
+            Expanded(
+              child: Container(),
+            ),
+
+            Expanded(
+              child: Text('easy message',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                      fontSize: 45, color: Colors.white, fontFamily: 'Monoton')),
+            ),
+            Text('محمد زوين',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                    fontSize: 10, color: Colors.white,)),
+            SizedBox(height: 10,)
+          ],
+        ),
       ),
     );
   }

@@ -12,6 +12,8 @@ class Assets {
   static const String imageBack2 = 'assets/image/back2.png';
   static const String imageBack3 = 'assets/image/back3.png';
   static const String imageIcon = 'assets/image/icon.png';
+  static const String imageIconWhatsapp1 = 'assets/image/iconWhatsapp1.png';
+  static const String imageIconWhatsapp2 = 'assets/image/iconWhatsapp2.png';
   static const String imageLoading = 'assets/image/loading.gif';
 
 }
