@@ -45,7 +45,7 @@ class HomeLayout extends StatelessWidget {
               },
               backgroundColor: setting.colorSystem[setting.colorNumber],
               currentIndex:providerMassage.currentIndex ,
-              selectedItemColor: Colors.purpleAccent,
+              selectedItemColor: setting.cardColor[setting.colorNumber],
               unselectedItemColor: Colors.white,
               selectedColorOpacity: .5,
               items: [
