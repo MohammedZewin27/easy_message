@@ -19,12 +19,13 @@ class sms_screen extends StatelessWidget {
 
   late WhatsappProvider provider;
   late MessageProvider providerMassage;
+  late SettingProvider setting;
 
   @override
   Widget build(BuildContext context) {
     provider = Provider.of<WhatsappProvider>(context);
     providerMassage = Provider.of<MessageProvider>(context);
-    var setting = Provider.of<SettingProvider>(context);
+     setting = Provider.of<SettingProvider>(context);
     MessageController.text = providerMassage.messageApp;
     titleController.text=providerMassage.titleMessageApp;
 
@@ -88,7 +89,7 @@ class sms_screen extends StatelessWidget {
   sendMessage() async {
     if (formKey.currentState!.validate()) {
       await provider.launchUrlSms(
-          numPhone: numberController.text,
+          numPhone: "${setting.controller.text} ${numberController.text}",
           messageSms: MessageController.text);
       if (providerMassage.allMassage.isEmpty ||
           providerMassage.allMassage.length == 0) {

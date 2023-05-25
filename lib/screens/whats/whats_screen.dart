@@ -19,12 +19,12 @@ class WhatsappScreen extends StatelessWidget {
 
   late WhatsappProvider provider;
   late MessageProvider providerMassage;
-
+late SettingProvider setting;
   @override
   Widget build(BuildContext context) {
     provider = Provider.of<WhatsappProvider>(context);
     providerMassage = Provider.of<MessageProvider>(context);
-    var setting = Provider.of<SettingProvider>(context);
+     setting = Provider.of<SettingProvider>(context);
     MessageController.text = providerMassage.messageApp;
     titleController.text = providerMassage.titleMessageApp;
     return Padding(
@@ -89,7 +89,7 @@ class WhatsappScreen extends StatelessWidget {
   sendWhatsapp() async {
     if (formKey.currentState!.validate()) {
       await provider.launchUrlWhatsapp(
-          numPhone: numberController.text,
+          numPhone: "${setting.controller.text} ${numberController.text}",
           messageWhats: MessageController.text);
 
       if (providerMassage.allMassage.isEmpty ||

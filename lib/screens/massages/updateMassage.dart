@@ -69,6 +69,13 @@ class _UpdateMassage_ScreenState extends State<UpdateMassage_Screen> {
                           massage: massageController.text,
                           id: providerMessage.allMassage[widget.index]['id']);
                       Navigator.pop(context);
+
+                      ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(
+                            content: Text('تم تعديل الرسالة بنجاح',
+                                style: TextStyle(color: Colors.white)),
+                            backgroundColor: Colors.green,
+                          ),);
                     }
                   },
                   title: "تعديل",

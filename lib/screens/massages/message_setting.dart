@@ -60,30 +60,7 @@ class _MessageScreenState extends State<MessageScreen> {
                 Icons.add,
               ),
         onPressed: () {
-          if (isBottomSheetShow) {
-            isBottomSheetShow = false;
-            print(isBottomSheetShow);
-            Navigator.pop(context);
-            setState(() {});
-          } else {
-            isBottomSheetShow = true;
-            print(isBottomSheetShow);
-            scaffoldKey.currentState!
-                .showBottomSheet(
-                  (context) {
-                    return Container(
-                        color: Colors.transparent, child: AddMassage_Screen());
-                  },
-                  elevation: 30,
-                )
-                .closed
-                .then((value) {
-                  print('vvvv $value');
-                  isBottomSheetShow = false;
-                  setState(() {});
-                });
-            setState(() {});
-          }
+          addMessage();
           ;
         },
       ),
@@ -97,7 +74,12 @@ class _MessageScreenState extends State<MessageScreen> {
                     "لا يوجد رسائل محفوظة ",
                     style: Theme.of(context).textTheme.subtitle1,
                   ),
-                  Icon(Icons.do_not_disturb_on_outlined),
+                  IconButton(
+                      icon:CircleAvatar(child: Icon(Icons.add)) ,
+                    onPressed: () {
+                   addMessage();
+                    },
+                  )
                 ],
               ),
             )
@@ -359,5 +341,33 @@ class _MessageScreenState extends State<MessageScreen> {
     await providerMessage.deleteRowInDatabase(
         id: providerMessage.allMassage[index]['id']);
     print(index);
+  }
+
+  void addMessage() {
+    if (isBottomSheetShow) {
+      isBottomSheetShow = false;
+      print(isBottomSheetShow);
+      Navigator.pop(context);
+      setState(() {});
+    } else {
+      isBottomSheetShow = true;
+      print(isBottomSheetShow);
+      scaffoldKey.currentState!
+          .showBottomSheet(
+            (context) {
+          return Container(
+              color: Colors.transparent, child: AddMassage_Screen());
+        },
+        elevation: 30,
+      )
+          .closed
+          .then((value) {
+        print('vvvv $value');
+        isBottomSheetShow = false;
+        setState(() {});
+      });
+      setState(() {});
+    }
+    ;
   }
 }

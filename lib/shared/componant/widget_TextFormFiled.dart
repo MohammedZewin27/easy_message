@@ -42,6 +42,10 @@ class My_TextFormFiled extends StatelessWidget {
       validator: validator,
       keyboardType: keyboardType,
       enabled: enable,
+      cursorWidth: 3.0, // تغيير عرض المؤشر
+      cursorRadius: Radius.circular(10), // تغيير شكل المؤشر إلى دائري
+      cursorColor:  setting.colorSystem[setting.colorNumber],
+
       inputFormatters: [
         LengthLimitingTextInputFormatter(length),
       ],

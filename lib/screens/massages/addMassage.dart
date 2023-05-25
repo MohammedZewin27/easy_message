@@ -28,10 +28,9 @@ class AddMassage_Screen extends StatelessWidget {
               Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(8),
-                  color:setting.colorSystem[setting.colorNumber] ,
+                  color: setting.colorSystem[setting.colorNumber],
                 ),
                 height: 45,
-
                 child: Text(
                   "اضافة رسالة جديدة",
                   textAlign: TextAlign.center,
@@ -64,6 +63,13 @@ class AddMassage_Screen extends StatelessWidget {
                         title: titleController.text,
                         massage: massageController.text);
                     Navigator.pop(context);
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                        content: Text('تم حفظ الرسالة بنجاح',
+                            style: TextStyle(color: Colors.white)),
+                        backgroundColor: Colors.green,
+                      ),
+                    );
                   },
                   title: "حفظ",
                   icon: Icons.save),

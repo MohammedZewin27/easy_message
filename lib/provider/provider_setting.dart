@@ -35,9 +35,9 @@ class SettingProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  bool drawer1 = sharedPreferences.getBool('drawer1') ?? false;
-  bool drawer2 = sharedPreferences.getBool('drawer2') ?? false;
-  bool drawer3 = sharedPreferences.getBool('drawer3') ?? false;
+  // bool drawer1 = sharedPreferences.getBool('drawer1') ?? false;
+  // bool drawer2 = sharedPreferences.getBool('drawer2') ?? false;
+  // bool drawer3 = sharedPreferences.getBool('drawer3') ?? false;
 
   int colorNumber = sharedPreferences.getInt('colorSystemIndex') ?? 0;
 
@@ -54,4 +54,14 @@ class SettingProvider extends ChangeNotifier {
     IconButton(onPressed: () {}, icon: Icon(Icons.email)),
     IconButton(onPressed: () {}, icon: Icon(Icons.save_as)),
   ];
+
+var controller=TextEditingController(text: sharedPreferences.getString('code')??'');
+  String internationalCode='';
+
+  insertNationalCode(){
+    sharedPreferences.setString('code', controller.text);
+    internationalCode=controller.text;
+    notifyListeners();
+  }
+
 }
